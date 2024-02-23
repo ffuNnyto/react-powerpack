@@ -5,7 +5,14 @@
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "keywords": ["react","tricks","components","hooks","typescript","javascript"],
+  "keywords": [
+    "react",
+    "tricks",
+    "components",
+    "hooks",
+    "typescript",
+    "javascript"
+  ],
   "files": [
     "./dist"
   ],
@@ -21,11 +28,9 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.57",
+    "axios": "^1.6.7",
+    "react": "^18.2.0",
     "tsup": "^8.0.2",
     "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "axios": "^1.6.7",
-    "react": "^18.2.0"
   }
 }

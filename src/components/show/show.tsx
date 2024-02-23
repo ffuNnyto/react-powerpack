@@ -2,6 +2,11 @@ import React from "react";
 import { ReactNode } from "react";
 import { ElseProps, ShowProps, WhenProps } from "./types";
 
+/**
+ * Show Component
+ * @param children The children components.
+ * @returns ReactNode
+ */
 
 export const Show: React.FC<ShowProps> & {
   When: React.FC<WhenProps>;
