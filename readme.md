@@ -44,7 +44,7 @@ function App() {
 #### <ClickOutsideComponent/>
 
 ```typescript
-import { Show, Each } from 'react-powerpack';
+import { ClickOutsideComponent } from 'react-powerpack';
 
 
 
@@ -179,7 +179,7 @@ export default MessageComponent;
 #### useDisclosure,useToggle
 ```typescript
 
-import {useTimeout} from 'react-powerpack';
+import {useToggle,useDisclosure} from 'react-powerpack';
 
 const [isToggled, toggle] = useToggle(false);
 
