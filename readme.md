@@ -41,6 +41,27 @@ function App() {
 }
 ```
 
+#### <ClickOutsideComponent/>
+
+```typescript
+import { Show, Each } from 'react-powerpack';
+
+
+
+function App() {
+
+
+
+  return (
+    <div>
+      <ClickOutsideComponent onClickOutside={() => console.log("CLICK OUTSIDE")}>
+          <div onClick={() => console.log("CLICK INSIDE")} style={{ border: '2px solid black', width: 200, height: 50 }}>hello</div>
+      </ClickOutsideComponent>
+    </div>
+  )
+}
+```
+
 #### useApi
 
 ```typescript
@@ -155,6 +176,48 @@ export default MessageComponent;
 
 ```
 
+#### useDisclosure,useToggle
+```typescript
+
+import {useTimeout} from 'react-powerpack';
+
+const [isToggled, toggle] = useToggle(false);
+
+const { isOpen, open, close, toggle } = useDisclosure();
+
+
+
+  return (
+    <div>
+
+     useToggle ->
+          <button onClick={toggle}>Toggle</button>
+          {isToggled ? <div>Toggle is ON</div> : <div>Toggle is OFF</div>} 
+
+      useDisclosure - >
+
+          <div>
+            <button onClick={open}>Open Modal</button>
+            <button onClick={close}>Close Modal</button>
+            <button onClick={toggle}>Toggle Modal</button>
+            {isOpen && (
+              <div style={{ border: '1px solid black', padding: '10px' }}>
+                Modal content
+              </div>
+            )}
+          </div>
+
+    </div>
+  );
+};
+
+export default MessageComponent;
+
+```
+
+
+
+
 
 
 ## List components
@@ -163,7 +226,7 @@ component  | description
 ------------- | -------------
 Show  | Conditional Renderer
 Each  | Dynamic List Renderer
-
+ClickOutsideComponent | Component for handling external clicks
 ## List hooks
 
 hook  | description
@@ -172,3 +235,6 @@ useApi  | Custom Axios Hook
 useAsync  |  Handles asynchronous operations
 useLastCallback  |  Remembers the last callback function
 useTimeout  |  Executes a function after a delay
+useClickOutside | Hook for detecting clicks outside
+useDisclosure | Manage modal or panel visibility
+useToggle | Toggle boolean state
