@@ -237,6 +237,8 @@ component  | description
 Show  | Conditional Renderer
 Each  | Dynamic List Renderer
 ClickOutsideComponent | Component for handling external clicks
+TextFit | AutoResizable custom text
+More... | Documentation
 ## List hooks
 
 hook  | description
@@ -249,3 +251,4 @@ useClickOutside | Hook for detecting clicks outside
 useDisclosure | Manage modal or panel visibility
 useToggle | Toggle boolean state
 useLocalStorage | Manage localStorage events
+More... | Documentation
