@@ -1,4 +1,4 @@
-import useClickOutside from "../../hooks/useclickoutside/useclickoutside";
+import { useClickOutside } from "../../hooks";
 import { Props } from "./types";
 
 

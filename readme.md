@@ -36,6 +36,9 @@ function App() {
          
         } />
       </Show.When>
+      <Show.Else>
+        visible is false
+      </Show.Else>
     </Show>
   )
 }
@@ -65,13 +68,21 @@ function App() {
 #### useApi
 
 ```typescript
-import { useApi } from 'react-powerpack';
-
-let customRequest = useApi('https://randomuser.me/api/', 'get', { useCredentials: true })
-
-let { request, data, error } = useApi('https://randomuser.me/api/', 'get')
-
-let { request, data, error } = useApi('https://randomuser.me/api/', 'get', { useCredentials: true, authorization: { scheme: 'Bearer', token: 'YOUR_TOKEN' } })
+export function App() {
+  let { request, data} = useApi('https://randomuser.me/api/', 'get')
+  //let { request, data, error } = useApi('https://randomuser.me/api/', 'get')
+  //let { request, data, error } = useApi('https://randomuser.me/api/', 'get', { useCredentials: true, authorization: { scheme: 'Bearer', token: 'YOUR_TOKEN' } })    
+  return (
+    <Show>
+      <Show.When isTrue={data !== null}>
+        {JSON.stringify(data, null, 2)}
+      </Show.When>
+      <Show.Else>
+        <div>request error</div>
+      </Show.Else>
+    </Show>
+      )
+  }
 
 ```
 #### useAsync
@@ -114,37 +125,26 @@ const UserComponent = () => {
 
 
 import {useLastCallback} from 'react-powerpack';
+export function App() {
 
-const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [count, setCount] = useState(0);
   
+  const increment = () => {
+          setCount(prevCount => prevCount + 1);
+  }
   
-  const search = async (term) => {
-    
-    console.log('Searching for:', term);
-  };
-
+  const lastIncrement = useLastCallback(increment);
   
-  const debouncedSearch = useLastCallback(search);
-
- 
-  const handleChange = (event) => {
-    const term = event.target.value;
-    setSearchTerm(term);
-    debouncedSearch(term);
-  };
-
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search..."
-        value={searchTerm}
-        onChange={handleChange}
-      />
-    </div>
-  );
-};
+          <div className='p-5 items-center border-2 rounded-xl flex'>
+              <p >Count: {count}</p>
+              <button variant='secondary' onClick={increment}>Increment</button>
+              <button variant='secondary' onClick={lastIncrement}>Last Increment</button>
+          </div>
+                
+    )
+}
+
 
 export default SearchBar;
 
@@ -238,3 +238,4 @@ useTimeout  |  Executes a function after a delay
 useClickOutside | Hook for detecting clicks outside
 useDisclosure | Manage modal or panel visibility
 useToggle | Toggle boolean state
+useLocalStorage | Manage localStorage events

@@ -1,6 +1,6 @@
 {
   "name": "react-powerpack",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "react-powerpack useful components",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -28,9 +28,11 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.57",
-    "axios": "^1.6.7",
     "react": "^18.2.0",
     "tsup": "^8.0.2",
     "typescript": "^5.3.3"
+  },
+  "peerDependencies": {
+    "axios": "*"
   }
 }

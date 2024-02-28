@@ -1,0 +1,1 @@
+export type LocalStorageValue<T> = T | null;

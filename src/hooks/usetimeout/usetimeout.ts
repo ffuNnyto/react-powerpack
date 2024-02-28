@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import useLastCallback from "../usecallback/usecallback";
 import { UseTimeoutFn } from "./types";
+import { useLastCallback } from "../usecallback/usecallback";
 
 /**
  * Custom hook for handling timeouts.
@@ -9,7 +9,7 @@ import { UseTimeoutFn } from "./types";
  * @beta Use the `dependencies` on test mode.
  */
 
-function useTimeout(callback: UseTimeoutFn, delay?: number, dependencies: readonly any[] = []): void {
+export function useTimeout(callback: UseTimeoutFn, delay?: number, dependencies: readonly any[] = []): void {
     const savedCallback = useLastCallback(callback);
 
     useEffect(() => {
@@ -23,4 +23,3 @@ function useTimeout(callback: UseTimeoutFn, delay?: number, dependencies: readon
     }, [delay, savedCallback, ...dependencies]);
 }
 
-export default useTimeout;

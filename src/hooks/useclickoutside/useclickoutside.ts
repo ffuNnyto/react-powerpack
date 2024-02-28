@@ -6,7 +6,7 @@ import { useEffect, useRef} from 'react';
  * @returns Ref object that should be attached to the element to monitor.
  */
 
-const useClickOutside = (handler: () => void) => {
+export const useClickOutside = (handler: () => void) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,5 +25,3 @@ const useClickOutside = (handler: () => void) => {
 
   return ref;
 };
-
-export default useClickOutside;
