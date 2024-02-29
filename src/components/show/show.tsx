@@ -17,9 +17,9 @@ export const Show: React.FC<ShowProps> & {
 
   React.Children.forEach(props.children, (child) => {
     const children = child as React.ReactElement<any>;
-    if (children.props.isTrue === undefined) {
+    if (children.props.condition === undefined) {
       otherwise = children;
-    } else if (!when && children.props.isTrue === true) {
+    } else if (!when && children.props.condition === true) {
       when = children;
     }
   });
@@ -27,6 +27,6 @@ export const Show: React.FC<ShowProps> & {
   return when || otherwise || null;
 };
 
-Show.When = ({ isTrue, children }) => (isTrue ? <>{children}</> : null);
+Show.When = ({ condition, children }) => (condition ? <>{children}</> : null);
 
 Show.Else = ({ children }) => <>{children}</>;

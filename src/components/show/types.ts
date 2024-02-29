@@ -5,7 +5,7 @@ export interface ShowProps {
 }
 
 export interface WhenProps {
-    isTrue: boolean;
+    condition: boolean;
     children: ReactNode;
 }
 

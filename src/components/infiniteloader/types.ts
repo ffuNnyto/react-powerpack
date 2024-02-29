@@ -6,4 +6,5 @@ export interface InfiniteLoaderProps {
     threshold?: number;
     renderContent: () => ReactNode;
     loadingComponent?: React.ReactNode;
+    className?:string
 }

@@ -18,7 +18,7 @@ import { InfiniteLoaderProps } from './types';
  * @returns {JSX.Element} - Rendered component.
  */
 
-export const InfiniteLoader: React.FC<InfiniteLoaderProps> = ({ onLoadMore, isLoading, renderContent, loadingComponent, threshold = 100 }) => {
+export const InfiniteLoader: React.FC<InfiniteLoaderProps> = ({ onLoadMore, isLoading, renderContent, loadingComponent, className, threshold = 100 }: InfiniteLoaderProps): JSX.Element => {
     const sentinelRef = useRef<HTMLDivElement>(null);
     const [isIntersecting, setIntersecting] = useState<boolean>(false);
 
@@ -49,12 +49,12 @@ export const InfiniteLoader: React.FC<InfiniteLoaderProps> = ({ onLoadMore, isLo
 
     return (
         <>
-            <div className='infinite-children'>
+            <div className={className ? className : 'infinite-loader-content'}>
                 {renderContent()}
             </div>
             <div ref={sentinelRef}></div>
             {isLoading && loadingComponent}
-            {isIntersecting && !isLoading && <div>Loading...</div>}
+            {isIntersecting && !isLoading && loadingComponent}
         </>
     );
 };

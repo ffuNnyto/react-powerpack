@@ -9,7 +9,7 @@ import { Props } from "./types";
  * @returns ReactNode
  */
 
-export const ClickOutsideComponent: React.FC<Props> = ({ children, onClickOutside }) => {
+export const ClickOutsideComponent: React.FC<Props> = ({ children, onClickOutside, className }) => {
     const wrapperRef = useClickOutside(onClickOutside);
-    return <div ref={wrapperRef}>{children}</div>;
+    return <div className={className ? className : 'each-children'} ref={wrapperRef}>{children}</div>;
 };
